@@ -15,7 +15,7 @@ const TodoApp = () => {
   useEffect(() => {
     const storedTodos = JSON.parse(window.localStorage.getItem("todos"));
     console.log("storedTodos", storedTodos);
-    if (storedTodos.length !== 0) {
+    if (storedTodos !== null) {
       setTodos(storedTodos);
     }
   }, []);
