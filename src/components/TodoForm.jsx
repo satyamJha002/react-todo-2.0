@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { format } from "date-fns";
 
 const TodoForm = ({ addTodo }) => {
   const [value, setValue] = useState({
@@ -26,7 +27,12 @@ const TodoForm = ({ addTodo }) => {
       return;
     }
     setValue({ title: "", description: "", date: "" });
-    addTodo({ id: new Date(), title, description, date });
+    addTodo({
+      id: new Date(),
+      title,
+      description,
+      date: format(new Date(date), "dd/mm/yyyy"),
+    });
   };
 
   return (
